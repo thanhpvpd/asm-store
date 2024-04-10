@@ -1,0 +1,81 @@
+<div>
+	<form method="post" enctype="multipart/form-data"
+		style="margin: 10px 0px">
+		<div class="card">
+			<div class="card-body">
+				<div class="content row">
+					<div class="video col-5 mt-4">
+						<div class="border border-dark mb-2"
+							style="width: 90%; height: 85%">
+							<img alt="No image" style="width: 100%; height: 100%"
+								ng-src="{{'/assets/images/product/' + form.image}}">
+						</div>
+						<div class="input-group">
+							<div class="custom-file">
+								<input type="file" accept="image/*" multiple
+									onchange="angular.element(this).scope().upLoadImage(this.files)" />
+							</div>
+						</div>
+					</div>
+					<div class="col-7">
+						<div class="item ms-5">
+							<label for="">Tên sản phẩm</label><br /> <input type="text"
+								ng-model="form.name" class="w-100 ps-2" required minlength="3" />
+						</div>
+						<div class="item ms-5  mt-2">
+							<label for="">Giá</label> <input type="number" class="w-100 ps-2"
+								ng-model="form.price" required min="0" />
+						</div>
+						<div class="item ms-5 mt-2">
+							<label>Ngày thêm:</label>
+							<div class="input-group mb-3">
+								<span class="input-group-text" id="basic-addon1">Date:</span> <input
+									ng-model="form.createDate" type="date" class="form-control"
+									aria-label="Date" aria-describedby="basic-addon1">
+							</div>
+						</div>
+						<div class="item ms-5  mt-2">
+							<label for="">Loại sản Phẩm</label> <select
+								class="form-select border border-dark"
+								ng-model="form.category.id" aria-label=".form-select-lg example">
+								<option ng-repeat="c in cates" ng-value="c.id">{{c.name}}</option>
+							</select>
+						</div>
+						<div class="item ms-5  mt-2">
+							<label>Trạng thái</label>
+							<div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio"
+										ng-model="form.available" name="inlineRadioOptions"
+										id="inlineRadio1" ng-value="true"> <label
+										class="form-check-label" for="inlineRadio1">Còn</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio"
+										ng-model="form.available" name="inlineRadioOptions"
+										id="inlineRadio2" ng-value="false"> <label
+										class="form-check-label" for="inlineRadio2">Hết</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card-footer bg-white">
+				<button ng-click="create()" class="btn btn-primary text-white fw-bold">
+					<i class="fa-solid fa-plus"></i> Thêm
+				</button>
+				<button ng-click="update()" class="btn btn-success text-white fw-bold">
+					<i class="fa-solid fa-download"></i> Cập nhật
+				</button>
+				<button ng-click="delete(form)" class="btn btn-danger text-white fw-bold">
+					<i class="fa-solid fa-trash"></i> Xóa
+				</button>
+				<button ng-click="reset()" class="btn btn-info text-white fw-bold">
+					<i class="fa-solid fa-repeat"></i> Đặt lại
+				</button>
+			</div>
+		</div>
+	</form>
+</div>

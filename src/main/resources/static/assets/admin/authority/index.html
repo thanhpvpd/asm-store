@@ -1,0 +1,21 @@
+<div class="panel panel-default mt-3">
+	<div>
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr class="text-center">
+					<th></th>
+					<th ng-repeat="role in roles">{{role.name}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="text-center" ng-repeat="acc in admins">
+					<td>{{acc.fullname}}</td>
+					<th ng-repeat="role in roles" class="text-center">
+						<input type="checkbox" ng-checked="authority_of(acc, role)"
+						ng-click="authority_changed(acc, role)">
+					</th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

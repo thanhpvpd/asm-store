@@ -1,0 +1,38 @@
+<div>
+	<table class="table table-hover table-bordered">
+		<thead>
+			<tr class="text-center">
+				<th>Id</th>
+				<th>Tên sản phẩm</th>
+				<th>Giá</th>
+				<th>Ngày thêm</th>
+				<th>Ảnh</th>
+				<th>Loại sản phẩm</th>
+				<th>Trạng thái</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="text-center" ng-repeat= "p in items | orderBy | limitTo:8:begin">
+				<td>{{p.id}}</td>
+				<td>{{p.name}}</td>
+				<td>{{p.price | number : 2}}</td>
+				<td>{{p.createDate | date : 'dd-MM-yyyy' }}</td>
+				<td>{{p.image}}</td>
+				<td>{{p.category.name}}</td>
+				<td>{{p.available?'Còn':'Hết'}}</td>
+				<td>
+					<button ng-click="edit(p)" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
+					<button ng-click="delete(p)" type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="text-center">
+		<button ng-click="first()" type="button" class="btn btn-dark"><i class="fa-solid fa-arrow-up"></i></button>
+		<button ng-click="prev()" type="button" class="btn btn-dark"><i class="fa-solid fa-arrow-left"></i></button>
+		<button type="button" class="btn btn-dark">{{currentPage}} of {{ pageCount }}</button>
+		<button ng-click="next()" type="button" class="btn btn-dark"><i class="fa-solid fa-arrow-right"></i></button>
+		<button ng-click="last()"type="button" class="btn btn-dark"><i class="fa-solid fa-arrow-down"></i></button>
+	</div>
+</div>

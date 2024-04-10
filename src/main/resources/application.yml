@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: asm-store
+  datasource:
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    password: songlong
+    url: jdbc:sqlserver://localhost;database=J6Store;encrypt=true;trustServerCertificate=true
+    username: sa
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+    show-sql: false
+  security:
+      oauth2:
+        client:
+          registration:
+            google:
+              client-id: 758875627956-7isdlvpec4dl1r0d56rt5khq0nbkej2q.apps.googleusercontent.com
+              client-secret: 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
+              scope:
+                - email
+                - profile

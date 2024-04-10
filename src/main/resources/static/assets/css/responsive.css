@@ -1,0 +1,43 @@
+/* menu responsive */
+
+@media (max-width:700px) {
+    .Ciseco-index {
+        z-index: 999;
+        width: 70%;
+        height: 90%;
+        display: none;
+    }
+}
+
+@media (max-width:400px) {
+    .Ciseco-index {
+        z-index: 999;
+        width: 100%;
+        height: 90%;
+        display: none;
+    }
+}
+
+
+@media (max-width:1024px) {
+    .ciseco-hide-two {
+        display: none;
+    }
+
+    .ciseco-hide-one {
+        display: block;
+    }
+
+    /* product button */
+    .button {
+
+        width: 100%;
+
+
+    }
+}
+
+
+
+/* product button */
+@media (max-width:1024px) {}

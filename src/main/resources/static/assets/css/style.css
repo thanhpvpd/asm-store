@@ -1,0 +1,318 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* menu hide show */
+.ciseco-hide-one {
+    display: none;
+}
+
+.Ciseco-index {
+    z-index: 40;
+    width: 40%;
+    height: 90%;
+    display: none;
+}
+
+/* product slider start  */
+
+
+.black {
+    color: red;
+}
+
+.blue {
+    color: black;
+}
+
+/* product slider end  */
+
+
+
+/* mega-menu-ciseco */
+.mega-ciseco {
+    display: none;
+    margin-top: 20px;
+    background: #fff;
+    box-shadow: 0px 5px 7px 1px rgba(0, 0, 0, 0.5);
+    z-index: 50;
+}
+
+.mega-menu-ciseco>ul>li:hover .mega-ciseco {
+    display: block;
+}
+
+/*jssor slider loading skin spin css*/
+.jssorl-009-spin img {
+    animation-name: jssorl-009-spin;
+    animation-duration: 1.6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes jssorl-009-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/*jssor slider bullet skin 032 css*/
+.jssorb032 {
+    position: absolute;
+}
+
+.jssorb032 .i {
+    position: absolute;
+    cursor: pointer;
+}
+
+.jssorb032 .i .b {
+    fill: #fff;
+    fill-opacity: 0.7;
+    stroke: #000;
+    stroke-width: 1200;
+    stroke-miterlimit: 10;
+    stroke-opacity: 0.25;
+}
+
+.jssorb032 .i:hover .b {
+    fill: #000;
+    fill-opacity: .6;
+    stroke: #fff;
+    stroke-opacity: .35;
+}
+
+.jssorb032 .iav .b {
+    fill: #000;
+    fill-opacity: 1;
+    stroke: #fff;
+    stroke-opacity: .35;
+}
+
+.jssorb032 .i.idn {
+    opacity: .3;
+}
+
+/*jssor slider arrow skin 051 css*/
+.jssora051 {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+}
+
+.jssora051 .a {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 360;
+    stroke-miterlimit: 10;
+}
+
+.jssora051:hover {
+    opacity: .8;
+}
+
+.jssora051.jssora051dn {
+    opacity: .5;
+}
+
+.jssora051.jssora051ds {
+    opacity: .3;
+    pointer-events: none;
+}
+
+/* slider two */
+
+
+
+/* color-product style stard*/
+.color-product {
+    margin: 10px 2px;
+    width: 80px;
+    height: 20px;
+    border-radius: 50px;
+    overflow: hidden;
+
+}
+.ciseco-hide-two{
+    z-index: 999;
+}
+
+.color-product img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.color-product-border {
+    border: rgb(234, 65, 14) 2px solid;
+}
+
+/* color-product style end*/
+
+
+
+/* sing up page start */
+
+/* Full-width input fields */
+input {
+    width: 100%;
+
+
+}
+
+/* Add a background color when the inputs get focus */
+/* input[type=text]:focus,
+input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+} */
+input[type=text],
+input[type=passwoed],
+input[type=email] {
+    outline: #d9f99d solid 1px;
+}
+
+/* Set a style for all buttons */
+/* button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+} */
+
+/* button:hover {
+    opacity: 1;
+} */
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: 100%;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+/* .cancelbtn,
+.signupbtn {
+    float: left;
+    width: 50%;
+} */
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: #474e5d;
+    padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+/* The Close Button (x) */
+.close {
+    margin-top: -20px;
+    margin-right: -20px;
+}
+
+/* .close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+} */
+
+/* .close:hover,
+.close:focus {
+    color: #f44336;
+    cursor: pointer;
+} */
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+
+    .cancelbtn,
+    .signupbtn {
+        width: 100%;
+    }
+}
+
+/* .card {
+    width: 300px;
+} */
+
+/* top:100 right:50 p-2 bg-white z-50 */
+/* css up */
+.width {
+    width: 200px;
+    position: absolute;
+    top: 100%;
+    right: -130%;
+    z-index: 1;
+    background-color: #fff;
+}
+
+
+/* sing up page end */
+/* product add remove start*/
+.heard {
+    color: red;
+}
+
+.hide {
+    display: none;
+    transition: ease(.5s);
+}
+
+.item:hover .hide {
+    display: block;
+}
+
+
+/* product add remove end */

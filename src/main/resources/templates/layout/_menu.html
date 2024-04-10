@@ -1,0 +1,96 @@
+<div xmlns="http://www.thymeleaf.org" th:fragment="menu">
+	<div
+		class="bg-white ciseco-hide-two fixed w-full z-50 top-0 py-1 transition-transform transform">
+		<div class="mx-auto">
+			<div class="grid grid-cols-6">
+				<div class="col-span-1">
+					<div class="flex justify-center justify-items-center mt-1">
+						<img th:src="@{/assets/images/logo/logo.14d0e71d.svg}" alt="" />
+					</div>
+				</div>
+				<div class="col-span-4 flex justify-center mega-menu-ciseco">
+					<ul class="flex flex-row">
+						<li
+							class="p-4 mt-1 hover:underline decoration-2 underline-offset-8">
+							<a class="  " th:href="@{/product/index}">Trang chủ</a>
+						</li>
+						<li
+							class="p-4 mt-1 hover:underline decoration-2 underline-offset-8">
+							<a class="" href="#"> Sản phẩm <svg
+									xmlns="http://www.w3.org/2000/svg" fill="none"
+									viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+									class="w-5 h-5 inline">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+										d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>
+						</a>
+							<div
+								class="mega-ciseco container mx-auto absolute top-100% right-0 left-0 border-t-2 border-slate-400 w-1/3">
+								<div
+									class="grid grid-flow-row-dense grid-cols-4 grid-rows-3 bg-black-100 p-4">
+									<a
+										class="col-span-1 block p-2 text-slate-500 hover:text-slate-900"
+										th:href="@{/product/list/all/0}">Tất cả</a> <a
+										class="col-span-1 block p-2 text-slate-500 hover:text-slate-900"
+										th:each="c : ${cates}"
+										th:href="@{/product/list/{idCategory}/0(idCategory = ${c.id})}"
+										th:text=${c.name}></a>
+								</div>
+							</div>
+						</li>
+						<th:block sec:authorize="isAuthenticated()">
+							<li
+								class="p-4 mt-1 hover:underline decoration-2 underline-offset-8">
+								<a th:href="@{/order/list/0}">Lịch sử</a>
+							</li>
+							<li sec:authorize="hasAnyRole('STAF', 'DIRE')"
+								class="p-4 mt-1 hover:underline decoration-2 underline-offset-8">
+								<a th:href="@{/admin}">Trang admin</a>
+							</li>
+						</th:block>
+					</ul>
+				</div>
+				<div class="col-span-1 flex justify-center justify-items-center">
+					<ul class="flex flex-row">
+						<li class="p-4 flex">
+							<form th:action="@{/product/find}" method="GET" class="flex">
+								<input type="text" name="findProduct" th:value="${find}"
+									class="flex px-2 border-2 w-36 rounded-lg placeholder:font-normal mr-2" />
+								<button type="submit"><i
+									class="fa-solid fa-magnifying-glass text-xl text-gray-500"></i></button>
+							</form>
+						</li>
+						<li
+							onclick="document.getElementById('sing').style.display='block'"
+							class="p-4 relative"><a><i
+								class="fa-solid fa-user text-xl text-gray-500"></i> </a>
+							<ul id="sing" class="width rounded-sm drop-shadow-md hidden">
+								<th:block sec:authorize="!isAuthenticated()">
+									<li onclick="document.getElementById('id01').style.display='block'"
+										class="p-4 bg-green-500 rounded-sm m-2 text-center cursor-pointer text-white font-black">
+										<a class="mostofa" th:href="@{/login/sign-in}">Đăng nhập</a>
+									</li>
+								</th:block>
+								<li sec:authorize="isAuthenticated()"
+									class="p-4 bg-green-500 rounded-sm m-2 text-center cursor-pointer text-white font-black">
+									<a class="mostofa" th:href="@{/login/security/out}">Đăng
+										xuất</a>
+								</li>
+							</ul></li>
+
+						<li class="p-4 mr-60"><a th:href="@{/cart/view}"
+							class="bolock relative inline-block no-underline hover:text-black">
+								<i
+								class="fa-solid fa-cart-shopping text-xl text-gray-500 bg-white"></i>
+								<span
+								class="absolute left-6 top-2 bg-red-500 text-white rounded-full w-5 h-5 flex justify-center items-center">{{cart.count}}</span>
+								<p
+									class="absolute left-12 top-1 text-black flex justify-center items-center">
+									{{cart.amount | number:2}}$</p>
+						</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

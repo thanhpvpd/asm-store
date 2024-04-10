@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org" th:fragment="dynamic(view)">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Owl Stylesheets -->
+<link rel="stylesheet" th:href="@{/assets/css/owl.carousel.min.css}" />
+<link rel="stylesheet"
+	th:href="@{/assets/css/owl.theme.default.min.css}" />
+<!-- fontawesome -->
+<script src="https://kit.fontawesome.com/4f3ee83587.js"
+	crossorigin="anonymous"></script>
+<!-- main stylesheet -->
+
+<link rel="stylesheet" th:href="@{/assets/css/Details.css}" />
+<link rel="stylesheet" th:href="@{/assets/css/style.css}" />
+
+<!-- responsive -->
+<link rel="stylesheet" th:href="@{/assets/css/responsive.css}" />
+<!-- google font  -->
+<link rel="preconnect" th:href="@{https://fonts.googleapis.com}" />
+<link rel="preconnect" th:href="@{https://fonts.gstatic.com}"
+	crossorigin />
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+<link
+	href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap"
+	rel="stylesheet" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<title>Shopping Cart</title>
+<!-- tailwindcss link -->
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body ng-app="shopping-cart-app" ng-controller="shopping-cart-ctrl">
+	<div th:replace="/layout/_menu"></div>
+	<main th:replace="${view}"></main>
+	<div th:replace="/layout/_footer"></div>
+	<!-- Earn free money   with Ciseco end-->
+
+	<script th:src="@{/assets/js/javascript.js}"></script>
+	<!-- slider -->
+	<script th:src="@{/assets/js/jssor.slider.min.js}"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+	<!--orl javascript -->
+
+	<script th:src="@{/assets/js/owl.carousel.min.js}"></script>
+
+	<script th:src="@{/assets/js/plugin.js}"></script>
+	<script th:src="@{/assets/js/jquery.js}"></script>
+
+	<script type="text/javascript"></script>
+	<script th:src="@{/assets/js/shopping-cart-app.js}"></script>
+	<!-- Đoạn mã JavaScript để kiểm tra và hiển thị thông báo từ server -->
+	<script th:inline="javascript">
+	    /*<![CDATA[*/
+	    var message = /*[[${message}]]*/ "";
+	    if (message.trim() != "") {
+	        alert(message);
+	    }
+	    /*]]>*/
+	</script>
+</body>
+</html>

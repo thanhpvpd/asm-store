@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!-- tim the co id la about trong trang nay -->
+<html lang="en" xmlns="http://www.thymeleaf.org"
+	th:replace="/layout/layout.html :: dynamic(~{::#homeview})">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+</head>
+<body>
+	<main id="homeview">
+		<div class="mt-24">
+			<div class="bg-gray-100 h-screen py-8">
+				<div class="mx-auto px-4">
+					<h1 class="text-2xl font-semibold mb-4">Hóa đơn</h1>
+					<div class="flex flex-col md:flex-row gap-4">
+						<div class="md:w-3/4">
+							<div class="bg-white rounded-lg shadow-md p-6 mb-4">
+								<table class="w-full">
+									<thead>
+										<tr>
+											<th class="text-left font-semibold">ID</th>
+											<th class="text-left font-semibold">Sản phẩm</th>
+											<th class="text-left font-semibold">Đơn giá</th>
+											<th class="text-left font-semibold">Số lượng</th>
+											<th class="text-left font-semibold">Thành tiền</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="item : ${order.orderDetails}">
+											<td class="py-4">
+												<div class="flex items-center">
+													<span th:text="${item.product.id}" class="font-semibold"></span>
+												</div>
+											</td>
+											<td class="py-4">
+												<div class="flex items-center">
+													<span th:text="${item.product.name}"  class="font-semibold"></span>
+												</div>
+											</td>
+											<td class="py-4">
+												<div class="flex items-center">
+													<span class="font-semibold">
+													[[${#numbers.formatDecimal(item.price, 0,'COMMA', 2, 'POINT')}]] $</span>
+												</div>
+											</td>
+											<td class="py-4">
+												<div class="flex items-center text-center">
+													<input th:value="${item.quantity}"
+														 type="number" min=1 class="ml-4 w-10" readonly="readonly" />
+												</div>
+											</td>
+											<td class="py-4">
+												<div class="flex items-center">
+													<span class="font-semibold">
+													[[${#numbers.formatDecimal(item.price * item.quantity, 0,'COMMA', 2, 'POINT')}]] $</span>
+												</div>
+											</td>
+										</tr>
+										<!-- More product rows -->
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="md:w-1/4">
+							<div class="bg-white overflow-hidden shadow rounded-lg border">
+								<div class="px-4 py-5 sm:px-6">
+									<h3 class="text-lg leading-6 font-medium text-gray-900">
+										[[${order.account.username}]]
+									</h3>
+									<p class="mt-1 max-w-2xl text-sm text-gray-500">
+										Tổng tiền: [[${#numbers.formatDecimal(sum, 0,'COMMA', 2, 'POINT')}]] $
+									</p>
+								</div>
+								<div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+									<dl class="sm:divide-y sm:divide-gray-200">
+										<div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+											<dt class="text-sm font-medium text-gray-500">
+												Họ và Tên
+											</dt>
+											<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+												[[${order.account.fullname}]]
+											</dd>
+										</div>
+										<div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+											<dt class="text-sm font-medium text-gray-500">
+												Email
+											</dt>
+											<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+												[[${order.account.email}]]
+											</dd>
+										</div>
+										<div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+											<dt class="text-sm font-medium text-gray-500">
+												Ngày đặt
+											</dt>
+											<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+												[[${order.createDate}]]
+											</dd>
+										</div>
+										<div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+											<dt class="text-sm font-medium text-gray-500">
+												Địa chỉ
+											</dt>
+											<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+												[[${order.address}]]
+											</dd>
+										</div>
+									</dl>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- product slider end -->
+		<div class="containar mx-auto px-6">
+			<hr />
+		</div>
+		<!-- hiw step start  -->
+		<div class="container mx-auto px-8 py-8 my-6">
+			<div class="lg:flex sm:grid grid-cols-2 grid-row-2">
+				<div class="card p-3 col-span-1">
+					<div class="images px-1 mx-auto">
+						<img th:src="@{/assets/images/hiw/HIW1img.png}" alt="" />
+					</div>
+					<div class="text-center">
+						<a href="#" class="py-1 px-2 rounded-3xl bg-amber-100">Bước 1</a>
+						<h2 class="py-6 font-black text-md">Lọc và tìm kiếm</h2>
+						<p class="text-slate-400 text-sm">
+							Lọc và tìm kiểm thông minh <br /> giúp bạn dễ dàng tìm thấy
+						</p>
+					</div>
+				</div>
+				<div class="card p-3">
+					<div class="images px-1 mx-auto">
+						<img th:src="@{/assets/images/hiw/HIW2img.png}" alt="" />
+					</div>
+					<div class="text-center">
+						<a href="#" class="py-1 px-2 rounded-3xl bg-amber-100">Bước 2</a>
+						<h2 class="py-6 font-black text-md">Thêm giỏ hàng</h2>
+						<p class="text-slate-400 text-sm">
+							Dễ dàng chọn đúng mặt hàng và <br /> thêm vào giỏ hàng
+						</p>
+					</div>
+				</div>
+				<div class="card p-3">
+					<div class="images px-1 mx-auto">
+						<img th:src="@{/assets/images/hiw/HIW3img.png}" alt="" />
+					</div>
+					<div class="text-center">
+						<a href="#" class="py-1 px-2 rounded-3xl bg-amber-100">Bước 3</a>
+						<h2 class="py-6 font-black text-md">Chuyển phát nhanh</h2>
+						<p class="text-slate-400 text-sm">
+							Đơn vị vẫn chuyển sẽ xác nhận và<br /> gửi hàng nhanh chóng tới
+							bạn
+						</p>
+					</div>
+				</div>
+				<div class="card p-3">
+					<div class="images px-1 mx-auto">
+						<img th:src="@{/assets/images/hiw/HIW4img.png}" alt="" />
+					</div>
+					<div class="text-center">
+						<a href="#" class="py-1 px-2 rounded-3xl bg-amber-100">Bước 4</a>
+						<h2 class="py-6 font-black text-md">Cảm nhận sản phẩm</h2>
+						<p class="text-slate-400 text-sm">
+							Dùng sản phẩm, tận hưởng nó và <br /> đánh giá 5 sao nếu bạn
+							thích
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>
